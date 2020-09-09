@@ -8,15 +8,13 @@ import StoreFrontIcon from "@material-ui/icons/Storefront";
 import PeopleIcon from "@material-ui/icons/People";
 import ChatIcon from "@material-ui/icons/Chat";
 import ExpandMoreOutlined from "@material-ui/icons/ExpandMoreOutlined";
+import { useStateValue } from "./StateProvider";
+
 const Sidebar = () => {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="sidebar">
-      <SidebarRow
-        src={
-          "https://image.shutterstock.com/image-vector/cute-little-girl-spring-260nw-337904864.jpg"
-        }
-        title="Simran Birla"
-      />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow
         Icon={LocalHospitalIcon}
         title="Covid-19 Information Center"

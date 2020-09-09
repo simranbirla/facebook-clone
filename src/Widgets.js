@@ -4,7 +4,7 @@ const Widgets = () => {
   return (
     <div className="widgets">
       <iframe
-        src="https://www.facebook.com/video/embed?video_id=1234567890"
+        src="https://www.facebook.com/5min.crafts/"
         width="340"
         height="1500"
         frameborder="0"
