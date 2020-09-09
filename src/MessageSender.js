@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar } from "@material-ui/core";
-
+import VideocamIcon from "@material-ui/icons/Videocam";
+import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
+import InsertEmojiIcon from "@material-ui/icons/InsertEmoticon";
+import "./MessageSender.css";
 const MessageSender = () => {
+  const [input, setInput] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setInput("");
+    setImageUrl("");
   };
 
   return (
@@ -15,15 +23,35 @@ const MessageSender = () => {
             type="text"
             placeholder="What's on your mind"
             className="messageSender__input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
-          <input type="text" placeholder="image URL (optional)" />
+          <input
+            type="text"
+            placeholder="image URL (optional)"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+          />
           <button type="submit" onClick={(e) => handleSubmit(e)}>
             Hidden Submit
           </button>
         </form>
       </div>
 
-      <div className="messageSender_bottom"></div>
+      <div className="messageSender__bottom">
+        <div className="messageSender__optional">
+          <VideocamIcon style={{ color: "red" }} />
+          <h3>Live Video</h3>
+        </div>
+        <div className="messageSender__optional">
+          <PhotoLibraryIcon style={{ color: "green" }} />
+          <h3>Photos/Video</h3>
+        </div>
+        <div className="messageSender__optional">
+          <InsertEmojiIcon style={{ color: "orange" }} />
+          <h3>Feeling/Activity</h3>
+        </div>
+      </div>
     </div>
   );
 };
